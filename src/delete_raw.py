@@ -8,6 +8,6 @@ files = glob.glob(os.path.join(folder_path, '*'))
 for file in files:
     try:
         os.remove(file)
-        print(f"Smazán soubor: {file}")
+        print(f"File deleted: {file}")
     except Exception as e:
-        print(f"Chyba při mazání souboru {file}: {e}")
+        print(f"Error while deleting {file}: {e}")

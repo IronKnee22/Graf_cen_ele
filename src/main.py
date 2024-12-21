@@ -11,7 +11,7 @@ def show_electricity_price():
 
 def compare_years():
     year_window = tk.Toplevel(root)
-    year_window.title("Porovnání roků")
+    year_window.title("Compare years")
     year_window.geometry("300x430")
 
     years = list(range(2010, 2025))
@@ -33,33 +33,30 @@ def compare_years():
         else:
             messagebox.showwarning("Choice", "You must select al least")
 
-    submit_btn = tk.Button(year_window, text="Potvrdit výběr", command=submit_years)
+    submit_btn = tk.Button(year_window, text="Confirm choice", command=submit_years)
     submit_btn.pack(pady=10)
 
 
 def select_single_year():
-    # Tvorba nového okna pro výběr roku
     year_window = tk.Toplevel(root)
-    year_window.title("Vyberte rok")
+    year_window.title("Choose year")
     year_window.geometry("300x430")
 
-    years = list(range(2010, 2025))  # Seznam roků
-    selected_year = tk.IntVar()  # Proměnná pro uložení vybraného roku
+    years = list(range(2010, 2025)) 
+    selected_year = tk.IntVar()  
 
-    # Funkce pro zpracování výběru roku
+    
     def submit_year():
-        if selected_year.get() != 0:  # Pokud byl nějaký rok vybrán
-            detail_year(selected_year.get())  # Volání funkce s vybraným rokem
-            year_window.destroy()  # Zavření okna
+        if selected_year.get() != 0:  
+            detail_year(selected_year.get())  
+            year_window.destroy()  
         else:
-            messagebox.showwarning("Choice", "You must select a year")  # Varování pokud nebyl vybrán rok
+            messagebox.showwarning("Choice", "You must select a year") 
 
-    # Vytvoření radiobuttonů pro každý rok
     for year in years:
         tk.Radiobutton(year_window, text=str(year), variable=selected_year, value=year).pack(anchor='w')
 
-    # Tlačítko pro odeslání výběru
-    tk.Button(year_window, text="Porovnat", command=submit_year).pack(pady=20)
+    tk.Button(year_window, text="Compare", command=submit_year).pack(pady=20)
 
 def box_plot():
     box_plot_graph()
@@ -69,7 +66,7 @@ def function_for_min_max():
 
 
 root = tk.Tk()
-root.title("Porovnání ceny elektřiny")
+root.title("Compare price of electricity")
 
 root.geometry("300x250")
 
